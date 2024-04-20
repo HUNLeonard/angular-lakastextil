@@ -1,0 +1,34 @@
+<h3>Cart</h3>
+<div *ngIf="isLoading; else cartContent">
+  <p>Loading...</p>
+</div>
+
+<ng-template #cartContent>
+  <div *ngIf="products.length; else noProducts">
+    <div *ngIf="cartItems.length; else emptyCart">
+      <div class="cart-item" *ngFor="let item of cartItems; let i = index">
+        <img [src]="(products[i] && products[i].image) || ''" alt="{{ (products[i] && products[i].name) || '' }}" width="50" height="50">
+        <div class="item-info">
+          <h4>{{ (products[i] && products[i].name) || '' }}</h4>
+          <p>Quantity: {{ getCartItemQuantity((products[i] && products[i].id) || '') }}</p>
+          <p>Price: {{ (products[i] && products[i].price) | priceFormatter }}</p>
+          <div class="item-actions">
+            <button class="btn-small" (click)="decrementQuantity(item)">-</button>
+            <button class="btn-small" (click)="incrementQuantity(item)">+</button>
+            <button class="btn-small" (click)="deleteItem(item)">Delete</button>
+          </div>
+        </div>
+      </div>
+      <div class="total">
+        <p>Total: {{ cartTotal | priceFormatter }}</p>
+        <button routerLink="/cart">View Cart</button>
+      </div>
+    </div>
+    <ng-template #emptyCart>
+      <p>Your cart is empty.</p>
+    </ng-template>
+  </div>
+  <ng-template #noProducts>
+    <p>No products found.</p>
+  </ng-template>
+</ng-template>

@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Products</h1>
+  <div class="product-grid">
+    <div *ngFor="let product of (products$ | async)" (click)="navigateToProductDetail(product)">
+      <app-product [product]="product"></app-product>
+    </div>
+  </div>
+</div>

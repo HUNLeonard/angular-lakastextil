@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="cart-content">
+    <h2>Cart</h2>
+    <div *ngIf="isLoading; else cartContent">
+      <p>Loading...</p>
+    </div>
+
+    <ng-template #cartContent>
+      <div *ngIf="products?.length; else emptyCart">
+        <div class="cart-item" *ngFor="let item of cartItems; let i = index">
+          <img [src]="(products[i] && products[i].image) || ''" alt="{{ (products[i] && products[i].name) || '' }}" width="50" height="50">
+          <div class="item-info">
+            <h4>{{ (products[i] && products[i].name) || '' }}</h4>
+            <p>Quantity: {{ getCartItemQuantity((products[i] && products[i].id) || '') }}</p>
+            <p>Price: {{ (products[i] && products[i].price) | priceFormatter }}</p>
+            <div class="item-actions">
+              <button class="btn-small" (click)="decrementQuantity(item)">-</button>
+              <button class="btn-small" (click)="incrementQuantity(item)">+</button>
+              <button class="btn-small" (click)="deleteItem(item)">Delete</button>
+            </div>
+          </div>
+        </div>
+        <div class="total">
+          <p>Total: {{ cartTotal | priceFormatter }}</p>
+        </div>
+      </div>
+      <ng-template #emptyCart>
+        <p>Your cart is empty.</p>
+      </ng-template>
+    </ng-template>
+  </div>
+
+  <div class="shipping-content">
+    <h2>Shipping</h2>
+    <div class="shipping-options">
+      <div *ngFor="let option of shippingOptions" class="shipping-option">
+        <input type="radio" [id]="option.name" name="shipping-option" [(ngModel)]="selectedShippingOption" [value]="option" (change)="selectShippingOption(option)">
+        <label [for]="option.name">{{ option.name }} - {{ option.price | priceFormatter }}</label>
+      </div>
+    </div>
+
+    <div class="shipping-address">
+      <h3>Shipping Address</h3>
+      <div class="shipping-address">
+        <input type="radio" id="default-address" name="shipping-address" [(ngModel)]="useDefaultAddress" [value]="true" [disabled]="!isDefaultAddressValid()"  (change)="selectShippingAddress(true)">
+        <label for="default-address">Use default address</label>
+      </div>
+      <div class="shipping-address">
+        <input type="radio" id="new-address" name="shipping-address" [(ngModel)]="useDefaultAddress" [value]="false"  (change)="selectShippingAddress(false)">
+        <label for="new-address">Use new address</label>
+      </div>
+    
+      <div *ngIf="useDefaultAddress && selectedShippingAddress" class="shipping-address-details">
+        <p><strong>Name:</strong> {{ selectedShippingAddress.name }}</p>
+        <p><strong>Phone Number:</strong> {{ selectedShippingAddress.phoneNumber }}</p>
+        <p><strong>Zip Code:</strong> {{ selectedShippingAddress.zipCode }}</p>
+        <p><strong>City:</strong> {{ selectedShippingAddress.city }}</p>
+        <p><strong>Address:</strong> {{ selectedShippingAddress.address }}</p>
+      </div>
+      <div *ngIf="!useDefaultAddress" class="new-shipping-form">
+        <form (ngSubmit)="saveNewShippingData()">
+          <label for="name">Name:</label>
+          <input type="text" id="name" [(ngModel)]="newShippingData.name" name="name" required>
+    
+          <label for="address">Address:</label>
+          <input type="text" id="address" [(ngModel)]="newShippingData.address" name="address" required>
+    
+          <label for="city">City:</label>
+          <input type="text" id="city" [(ngModel)]="newShippingData.city" name="city" required>
+    
+          <label for="zipCode">Zip Code:</label>
+          <input type="text" id="zipCode" [(ngModel)]="newShippingData.zipCode" name="zipCode" required>
+    
+          <label for="phoneNumber">Phone Number:</label>
+          <input type="tel" id="phoneNumber" [(ngModel)]="newShippingData.phoneNumber" name="phoneNumber" required>
+          <button type="submit">Save Address</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="total-and-purchase">
+      <div class="total">
+        <p>Total: {{ cartTotal + (selectedShippingOption?.price || 0) | priceFormatter }}</p>
+      </div>
+      <div class="purchase-container">
+        <span *ngIf="!canPurchase" class="error-text">
+          {{ getPurchaseErrorMessage() }}
+        </span>
+        <button (click)="purchase()" [ngClass]="{ 'disabled': !canPurchase }">
+          Purchase
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

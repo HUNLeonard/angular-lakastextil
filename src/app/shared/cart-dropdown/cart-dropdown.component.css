@@ -1,0 +1,112 @@
+
+.cart-dropdown {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 100%;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.loading-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.item-info {
+  margin-left: 16px;
+  flex-grow: 1;
+}
+
+.item-info h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.item-info p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.total p {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.total button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.total button:hover {
+  background-color: #0056b3;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.item-actions button.btn-small {
+  background-color: #f0f0f0;
+  border: none;
+  color: #333;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.item-actions button.btn-small:hover {
+  background-color: #e0e0e0;
+}
+
+.item-actions button.btn-small:active {
+  background-color: #d0d0d0;
+}

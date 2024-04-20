@@ -1,0 +1,33 @@
+<header>
+  <div class="logo">
+    <a routerLink="/">Logo Text</a>
+  </div>
+  <div class="vertical-line"></div>
+  <div class="search-bar">
+    <input type="text" placeholder="Search" [(ngModel)]="searchText" />
+    <button (click)="searchProducts()">Search</button>
+  </div>
+  <div class="vertical-line"></div>
+  <div class="account-menu">
+    <ng-container *ngIf="!isLoggedIn; else loggedIn">
+      <button routerLink="/sign">Sign in/up</button>
+    </ng-container>
+    <ng-template #loggedIn>
+      <div class="account-dropdown" (mouseenter)="showAccountMenu = true" (mouseleave)="showAccountMenu = false">
+        <button>Account</button>
+        <div class="dropdown-menu" *ngIf="showAccountMenu">
+          <a routerLink="/account">Settings</a>
+          <a routerLink="/orders">Orders</a>
+          <a href="#" (click)="logOut($event)">Log out</a>
+        </div>
+      </div>
+      <!-- src/app/shared/header/header.component.html -->
+      <div class="cart-dropdown" (mouseenter)="showCartMenu = true" (mouseleave)="showCartMenu = false">
+        <a routerLink="/cart">Cart</a>
+        <div class="dropdown-menu" *ngIf="showCartMenu">
+          <app-cart-dropdown></app-cart-dropdown>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</header>

@@ -1,0 +1,250 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  background-color: #f5f5f5;
+}
+
+.cart-content,
+.shipping-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  width: 48%;
+}
+
+.loading-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.item-info {
+  margin-left: 20px;
+  flex-grow: 1;
+}
+
+.item-info h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.item-info p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #555;
+}
+
+.total {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.item-actions button.btn-small {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  padding: 8px 14px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 6px;
+  transition: background-color 0.3s;
+}
+
+.item-actions button.btn-small:hover {
+  background-color: #0056b3;
+}
+
+.item-actions button.btn-small:active {
+  background-color: #004a94;
+}
+
+.shipping-options {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.shipping-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.shipping-option input[type="radio"] {
+  margin-right: 12px;
+}
+
+.shipping-address {
+  margin-bottom: 25px;
+}
+
+.shipping-data {
+  background-color: #f0f0f0;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.shipping-data p {
+  margin: 6px 0;
+}
+
+.shipping-data button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.shipping-data button:hover {
+  background-color: #0056b3;
+}
+
+.total-and-purchase {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-and-purchase button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.total-and-purchase button.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.total-and-purchase button.disabled:hover {
+  background-color: #b3b3b3;
+}
+
+.total-and-purchase button:hover {
+  background-color: #0056b3;
+}
+
+.purchase-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.error-text {
+  color: #ff0000;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.shipping-address {
+  margin-bottom: 30px;
+}
+
+.shipping-address h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.shipping-address-details {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shipping-address-details p {
+  font-size: 16px;
+  color: #555;
+  margin: 8px 0;
+}
+
+.shipping-address-details p strong {
+  font-weight: 600;
+  color: #333;
+}
+
+.new-shipping-form {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.new-shipping-form label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.new-shipping-form input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.new-shipping-form button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.new-shipping-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}

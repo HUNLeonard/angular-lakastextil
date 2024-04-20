@@ -1,0 +1,35 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ isSignUp ? 'Sign Up' : 'Sign In' }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()" [formGroup]="signForm">
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix>email</mat-icon>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" required>
+        <mat-error *ngIf="signForm.get('email')?.invalid">Please enter a valid email address</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix>lock</mat-icon>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" required>
+        <mat-error *ngIf="signForm.get('password')?.invalid">Password must be at least 6 characters long</mat-error>
+      </mat-form-field>
+      <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+      <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+      <button mat-raised-button color="primary" type="submit" [disabled]="signForm.invalid">
+        {{ isSignUp ? 'Sign Up' : 'Sign In' }}
+      </button>
+    </form>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions [align]="'end'">
+    <p>
+      {{ isSignUp ? 'Already have an account?' : 'Don\'t have an account?' }}
+      <a href="#" (click)="toggleSignUpMode($event)" matTooltip="Switch to {{ isSignUp ? 'Sign In' : 'Sign Up' }}">
+        {{ isSignUp ? 'Sign In' : 'Sign Up' }}
+      </a>
+    </p>
+  </mat-card-actions>
+</mat-card>

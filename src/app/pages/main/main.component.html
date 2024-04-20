@@ -1,0 +1,10 @@
+<div class="main-container">
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let product of (randomProducts$ | async)" (click)="navigateToProductDetail(product)">
+      <app-product [product]="product"></app-product>
+    </div>
+  </div>
+  <div class="more-button">
+    <button (click)="navigateToProducts()">MORE</button>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="orders-container">
+    <h1 class="orders-title">My Orders</h1>
+  
+    <div *ngIf="orders.length === 0" class="no-orders">
+      <p>You have no orders yet.</p>
+    </div>
+  
+    <div *ngIf="orders.length > 0" class="orders-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Purchase Date</th>
+            <th>Estimated Delivery</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders" (click)="onOrderClick(order)" class="order-row">
+            <td>{{ order.id }}</td>
+            <td>{{ order.purchaseDate | date:'yyyy MMMM dd HH:mm:ss' }}</td>
+            <td>{{ order.estimatedDate | date:'yyyy MMMM dd HH:mm:ss' }}</td>
+            <td>{{ order.total | priceFormatter }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div *ngIf="selectedOrder" class="order-details">
+      <h2 class="order-details-title">Order Details</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products; let i = index" (click)="navigateTo(product)">
+            <td><img [src]="product.image" alt="{{ product.name }}" width="50" class="product-image"></td>
+            <td>{{ product.name }}</td>
+            <td>{{ getProductPrice(selectedOrder.products[i]) | priceFormatter }}</td>
+            <td>{{ getProductQuantity(selectedOrder.products[i]) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
