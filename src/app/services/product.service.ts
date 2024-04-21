@@ -1,6 +1,6 @@
 // src/app/services/product.service.ts
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection, Query } from '@angular/fire/compat/firestore';
 import { Observable, forkJoin, from } from 'rxjs';
 import { map, switchMap, catchError } from 'rxjs/operators';
 import { Product } from '../models/product.model';
@@ -16,26 +16,20 @@ export class ProductService {
     this.productsCollection = this.firestore.collection<Product>('products');
   }
 
-  getAllProducts(searchText: string = ''): Observable<Product[]> {
+  getAllProducts(): Observable<Product[]> {
     let query: AngularFirestoreCollection<Product>;
-
-    if (searchText) {
-      const searchWords = searchText.trim().toLowerCase().split(' ');
-      query = this.firestore.collection<Product>('products', ref =>
-        ref.where('name', 'array-contains-any', searchWords)
-      );
-    } else {
-      query = this.productsCollection;
-    }
-
-    return query.snapshotChanges().pipe(
-      map(actions =>
-        actions.map(a => {
-          const data = a.payload.doc.data();
-          const { id } = a.payload.doc;
-          return { id, name: data.name, price: data.price, description: data.description, image: data.image } as Product;
-        })
-      ),
+    query = this.productsCollection;
+    
+  
+    return query.get().pipe(
+      map(querySnapshot => {
+        const products: Product[] = [];
+        querySnapshot.forEach(doc => {
+          const data = doc.data();
+          products.push({ id: doc.id, ...data } as Product);
+        });
+        return products;
+      }),
       switchMap(products =>
         forkJoin(
           products.map(async product => {
@@ -46,7 +40,64 @@ export class ProductService {
       )
     );
   }
+
+  getAllProductsFiltered(
+    searchText: string = '',
+    priceRange?: { min?: number, max?: number },
+    sortBy?: { field: string, order: 'asc' | 'desc' }
+  ): Observable<Product[]> {
+    let query: Query<Product> = this.productsCollection.ref;
   
+  
+    // Filter by price range
+    if (priceRange?.min !== undefined) {
+      query = query.where('price', '>=', priceRange.min);
+    }
+    if (priceRange?.max !== undefined) {
+      query = query.where('price', '<=', priceRange.max);
+    }
+  
+    // Sort by field and order
+    if (sortBy?.field) {
+      const orderBy = sortBy.order === 'asc' ? 'asc' : 'desc';
+      query = query.orderBy(sortBy.field, orderBy);
+    }
+  
+    return from(query.get()).pipe(
+      map((querySnapshot) => {
+        const products: Product[] = [];
+        querySnapshot.forEach((doc) => {
+          const data = doc.data() as Product;
+          if(searchText){
+            const name = data.name.toLowerCase();
+            let searchWords =searchText.trim().toLowerCase().split(' ');
+            const matchesSearchWords = searchWords.every((word: string) => name.includes(word));
+            if (matchesSearchWords) {
+                products.push({ id: doc.id, ...data } as Product);
+            }
+          }
+          else{
+            products.push({ id: doc.id, ...data } as Product);
+          }
+        });
+        return products;
+      }),
+      switchMap((products) =>
+        forkJoin(
+          products.map(async (product) => {
+            const downloadURL = await this.getImageDownloadURL(product.image);
+            return { ...product, image: downloadURL };
+          })
+        )
+      ),
+      catchError((error) => {
+        console.error('Error fetching products:', error);
+        return from([]);
+      })
+    );
+  }
+  
+
   getProductsByDocumentIds(productIds: string[]): Observable<Product[]> {
     //console.log(productIds);
     const productObservables = productIds.map((productId) =>

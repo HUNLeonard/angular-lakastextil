@@ -14,6 +14,8 @@ export class ProductsComponent implements OnInit {
   products$: Observable<Product[]> | undefined;
   product: Product | undefined;
   searchText: string = '';
+  priceRange: { min?: number, max?: number } = {};
+  sortBy: { field: string, order: 'asc' | 'desc' } = { field: '', order: 'asc' };
 
   constructor(
     private route: ActivatedRoute,
@@ -37,7 +39,14 @@ export class ProductsComponent implements OnInit {
     }
   }
 
+  resetFilters() {
+    this.searchText = '';
+    this.priceRange = {};
+    this.sortBy = { field: '', order: 'asc' };
+    this.getProducts();
+  }
+
   getProducts() {
-    this.products$ = this.productService.getAllProducts(this.searchText);
+    this.products$ = this.productService.getAllProductsFiltered(this.searchText, this.priceRange, this.sortBy);
   }
 }
