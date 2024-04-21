@@ -1,4 +1,13 @@
 {
+  "targets":{
+    "angular-lakastextil":{
+      "hosting":{
+        "angular-lakastextil":[
+          "angular-lakastextil"
+        ]
+      }
+    }
+  },
   "projects": {
     "default": "angular-lakastextil"
   }
