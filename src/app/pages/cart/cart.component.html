@@ -60,19 +60,19 @@
       <div *ngIf="!useDefaultAddress" class="new-shipping-form">
         <form (ngSubmit)="saveNewShippingData()">
           <label for="name">Name:</label>
-          <input type="text" id="name" [(ngModel)]="newShippingData.name" name="name" required>
+          <input type="text" id="name" [(ngModel)]="newShippingData.name" name="name" (input)="checkPurchaseConditions()" required>
     
           <label for="address">Address:</label>
-          <input type="text" id="address" [(ngModel)]="newShippingData.address" name="address" required>
+          <input type="text" id="address" [(ngModel)]="newShippingData.address" name="address" (input)="checkPurchaseConditions()" required>
     
           <label for="city">City:</label>
-          <input type="text" id="city" [(ngModel)]="newShippingData.city" name="city" required>
+          <input type="text" id="city" [(ngModel)]="newShippingData.city" name="city" (input)="checkPurchaseConditions()" required>
     
           <label for="zipCode">Zip Code:</label>
-          <input type="text" id="zipCode" [(ngModel)]="newShippingData.zipCode" name="zipCode" required>
+          <input type="number" id="zipCode" [(ngModel)]="newShippingData.zipCode" name="zipCode" (input)="checkPurchaseConditions()" required>
     
           <label for="phoneNumber">Phone Number:</label>
-          <input type="tel" id="phoneNumber" [(ngModel)]="newShippingData.phoneNumber" name="phoneNumber" required>
+          <input type="number" id="phoneNumber" [(ngModel)]="newShippingData.phoneNumber" name="phoneNumber" (input)="checkPurchaseConditions()" required>
           <button type="submit">Save Address</button>
         </form>
       </div>

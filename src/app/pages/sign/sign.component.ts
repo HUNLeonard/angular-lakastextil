@@ -58,6 +58,7 @@ export class SignComponent {
         //console.error('Error:', error);
         this.errorMessage = 'An error occurred. Please try again.';
       }
+      this.isLoading = false; 
     } finally {
       this.isLoading = false;
     }

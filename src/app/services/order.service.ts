@@ -42,7 +42,7 @@ export class OrderService {
       purchaseDate: new Date(),
       estimatedDate: this.getEstimatedDeliveryDate(selectedShippingOption.name)
     };
-    console.log(order);
+    //console.log(order);
     await this.ordersCollection.add(order);
   }
 

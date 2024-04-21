@@ -57,3 +57,7 @@
   .product-info .add-to-cart:hover {
     background-color: #0056b3;
   }
+
+  .product-info .add-to-cart:disabled {
+    background-color: #ccc;
+  }

@@ -44,6 +44,7 @@ export class ProductsComponent implements OnInit {
     this.priceRange = {};
     this.sortBy = { field: '', order: 'asc' };
     this.getProducts();
+    this.router.navigate(['/products']);
   }
 
   getProducts() {

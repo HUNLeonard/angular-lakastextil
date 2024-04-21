@@ -6,6 +6,6 @@
     <h2>{{ product?.name }}</h2>
     <p class="description">{{ product?.description }}</p>
     <p class="price">Price: {{ (product?.price || 0)| priceFormatter }}</p>
-    <button class="add-to-cart">Add to Cart</button>
+    <button class="add-to-cart"[disabled]="!isLoggedIn" (click)="addToCart()">Add to Cart</button>
   </div>
 </div>

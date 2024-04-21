@@ -22,10 +22,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'lakastextil-webshop'`, () => {
+  it(`should have as title 'angular-lakastextil'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('lakastextil-webshop');
+    expect(app.title).toEqual('angular-lakastextil');
   });
 
   it('should render header', () => {

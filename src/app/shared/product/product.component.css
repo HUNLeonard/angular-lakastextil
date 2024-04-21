@@ -47,3 +47,7 @@
   .product-card button:hover {
     background-color: #3e8e41;
   }
+
+  .product-card button:disabled {
+    background-color: #ccc;
+  }

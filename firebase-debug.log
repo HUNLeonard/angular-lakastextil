@@ -1,0 +1,176 @@
+[debug] [2024-04-21T13:54:00.051Z] ----------------------------------------------------------------------
+[debug] [2024-04-21T13:54:00.055Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Attila\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-04-21T13:54:00.056Z] CLI Version:   13.7.3
+[debug] [2024-04-21T13:54:00.056Z] Platform:      win32
+[debug] [2024-04-21T13:54:00.056Z] Node Version:  v20.11.1
+[debug] [2024-04-21T13:54:00.056Z] Time:          Sun Apr 21 2024 15:54:00 GMT+0200 (közép-európai nyári idő)
+[debug] [2024-04-21T13:54:00.057Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-21T13:54:00.062Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-04-21T13:54:00.221Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-21T13:54:00.222Z] > authorizing via signed-in user (acsata2002@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Attila\Desktop\Webkeret\angular-lakastextil
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[debug] [2024-04-21T13:54:00.560Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-04-21T13:54:00.560Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-04-21T13:54:20.776Z] Using project from CLI flag: angular-webfejlesztes
+[debug] [2024-04-21T13:54:20.778Z] > refreshing access token with scopes: []
+[debug] [2024-04-21T13:54:20.779Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-04-21T13:54:20.779Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-21T13:54:20.896Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-04-21T13:54:20.897Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-21T13:54:20.909Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/angular-webfejlesztes [none]
+[debug] [2024-04-21T13:54:21.231Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/angular-webfejlesztes 200
+[debug] [2024-04-21T13:54:21.231Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/angular-webfejlesztes {"projectId":"angular-webfejlesztes","projectNumber":"528806936013","displayName":"Angular-Webfejlesztes","name":"projects/angular-webfejlesztes","resources":{"hostingSite":"angular-webfejlesztes","realtimeDatabaseInstance":"angular-webfejlesztes-default-rtdb","storageBucket":"angular-webfejlesztes.appspot.com","locationId":"europe-west"},"state":"DELETED","etag":"1_71b297c7-80cd-4edd-99a3-b4dfcbe51c2f"}
+[info] i  Using project angular-webfejlesztes (Angular-Webfejlesztes) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2024-04-21T13:54:21.240Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/angular-webfejlesztes/services/firebasedatabase.googleapis.com [none]
+[debug] [2024-04-21T13:54:21.240Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/angular-webfejlesztes/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/angular-webfejlesztes
+[debug] [2024-04-21T13:54:22.206Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/angular-webfejlesztes/services/firebasedatabase.googleapis.com 200
+[debug] [2024-04-21T13:54:22.206Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/angular-webfejlesztes/services/firebasedatabase.googleapis.com [omitted]
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2024-04-21T13:54:22.208Z] >>> [apiv2][query] GET https://firebasedatabase.googleapis.com/v1beta/projects/angular-webfejlesztes/locations/-/instances/angular-webfejlesztes-default-rtdb [none]
+[debug] [2024-04-21T13:54:23.145Z] <<< [apiv2][status] GET https://firebasedatabase.googleapis.com/v1beta/projects/angular-webfejlesztes/locations/-/instances/angular-webfejlesztes-default-rtdb 404
+[debug] [2024-04-21T13:54:23.146Z] <<< [apiv2][body] GET https://firebasedatabase.googleapis.com/v1beta/projects/angular-webfejlesztes/locations/-/instances/angular-webfejlesztes-default-rtdb {"error":{"code":404,"message":"Project has been deleted.","status":"NOT_FOUND"}}
+[debug] [2024-04-21T13:54:23.146Z] HTTP Error: 404, Project has been deleted.
+[debug] [2024-04-21T13:54:23.148Z] FirebaseError: HTTP Error: 404, Project has been deleted.
+    at responseToError (C:\Users\Attila\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\Attila\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:299:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get instance details for instance: angular-webfejlesztes-default-rtdb. See firebase-debug.log for more details.
+[debug] [2024-04-21T13:55:02.476Z] ----------------------------------------------------------------------
+[debug] [2024-04-21T13:55:02.480Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Attila\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-04-21T13:55:02.481Z] CLI Version:   13.7.3
+[debug] [2024-04-21T13:55:02.481Z] Platform:      win32
+[debug] [2024-04-21T13:55:02.481Z] Node Version:  v20.11.1
+[debug] [2024-04-21T13:55:02.481Z] Time:          Sun Apr 21 2024 15:55:02 GMT+0200 (közép-európai nyári idő)
+[debug] [2024-04-21T13:55:02.481Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-21T13:55:02.584Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-21T13:55:02.585Z] > authorizing via signed-in user (acsata2002@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Attila\Desktop\Webkeret\angular-lakastextil
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-04-21T13:55:11.081Z] Using project from CLI flag: angular-webfejlesztes
+[debug] [2024-04-21T13:55:11.083Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/angular-webfejlesztes [none]
+[debug] [2024-04-21T13:55:11.467Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/angular-webfejlesztes 200
+[debug] [2024-04-21T13:55:11.468Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/angular-webfejlesztes {"projectId":"angular-webfejlesztes","projectNumber":"528806936013","displayName":"Angular-Webfejlesztes","name":"projects/angular-webfejlesztes","resources":{"hostingSite":"angular-webfejlesztes","realtimeDatabaseInstance":"angular-webfejlesztes-default-rtdb","storageBucket":"angular-webfejlesztes.appspot.com","locationId":"europe-west"},"state":"DELETED","etag":"1_71b297c7-80cd-4edd-99a3-b4dfcbe51c2f"}
+[info] i  Using project angular-webfejlesztes (Angular-Webfejlesztes) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2024-04-21T13:55:11.481Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/angular-webfejlesztes/services/firebasedatabase.googleapis.com [none]
+[debug] [2024-04-21T13:55:11.482Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/angular-webfejlesztes/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/angular-webfejlesztes
+[debug] [2024-04-21T13:55:12.409Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/angular-webfejlesztes/services/firebasedatabase.googleapis.com 200
+[debug] [2024-04-21T13:55:12.410Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/angular-webfejlesztes/services/firebasedatabase.googleapis.com [omitted]
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2024-04-21T13:55:12.412Z] >>> [apiv2][query] GET https://firebasedatabase.googleapis.com/v1beta/projects/angular-webfejlesztes/locations/-/instances/angular-webfejlesztes-default-rtdb [none]
+[debug] [2024-04-21T13:55:13.281Z] <<< [apiv2][status] GET https://firebasedatabase.googleapis.com/v1beta/projects/angular-webfejlesztes/locations/-/instances/angular-webfejlesztes-default-rtdb 404
+[debug] [2024-04-21T13:55:13.281Z] <<< [apiv2][body] GET https://firebasedatabase.googleapis.com/v1beta/projects/angular-webfejlesztes/locations/-/instances/angular-webfejlesztes-default-rtdb {"error":{"code":404,"message":"Project has been deleted.","status":"NOT_FOUND"}}
+[debug] [2024-04-21T13:55:13.282Z] HTTP Error: 404, Project has been deleted.
+[debug] [2024-04-21T13:55:13.283Z] FirebaseError: HTTP Error: 404, Project has been deleted.
+    at responseToError (C:\Users\Attila\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\Attila\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:299:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get instance details for instance: angular-webfejlesztes-default-rtdb. See firebase-debug.log for more details.
+[debug] [2024-04-21T14:27:24.668Z] ----------------------------------------------------------------------
+[debug] [2024-04-21T14:27:24.672Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Attila\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-04-21T14:27:24.673Z] CLI Version:   13.7.3
+[debug] [2024-04-21T14:27:24.673Z] Platform:      win32
+[debug] [2024-04-21T14:27:24.673Z] Node Version:  v20.11.1
+[debug] [2024-04-21T14:27:24.674Z] Time:          Sun Apr 21 2024 16:27:24 GMT+0200 (közép-európai nyári idő)
+[debug] [2024-04-21T14:27:24.674Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-21T14:27:24.780Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-21T14:27:24.781Z] > authorizing via signed-in user (acsata2002@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Attila\Desktop\Webkeret\angular-lakastextil
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-04-21T14:27:37.436Z] Using project from CLI flag: angular-webfejlesztes
+[debug] [2024-04-21T14:27:37.440Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/angular-webfejlesztes [none]
+[debug] [2024-04-21T14:27:37.778Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/angular-webfejlesztes 200
+[debug] [2024-04-21T14:27:37.778Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/angular-webfejlesztes {"projectId":"angular-webfejlesztes","projectNumber":"528806936013","displayName":"Angular-Webfejlesztes","name":"projects/angular-webfejlesztes","resources":{"hostingSite":"angular-webfejlesztes","realtimeDatabaseInstance":"angular-webfejlesztes-default-rtdb","storageBucket":"angular-webfejlesztes.appspot.com","locationId":"europe-west"},"state":"DELETED","etag":"1_71b297c7-80cd-4edd-99a3-b4dfcbe51c2f"}
+[info] i  Using project angular-webfejlesztes (Angular-Webfejlesztes) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2024-04-21T14:27:37.791Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/angular-webfejlesztes/services/firebasedatabase.googleapis.com [none]
+[debug] [2024-04-21T14:27:37.791Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/angular-webfejlesztes/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/angular-webfejlesztes
+[debug] [2024-04-21T14:27:38.768Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/angular-webfejlesztes/services/firebasedatabase.googleapis.com 200
+[debug] [2024-04-21T14:27:38.768Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/angular-webfejlesztes/services/firebasedatabase.googleapis.com [omitted]
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2024-04-21T14:27:38.770Z] >>> [apiv2][query] GET https://firebasedatabase.googleapis.com/v1beta/projects/angular-webfejlesztes/locations/-/instances/angular-webfejlesztes-default-rtdb [none]
+[debug] [2024-04-21T14:27:39.733Z] <<< [apiv2][status] GET https://firebasedatabase.googleapis.com/v1beta/projects/angular-webfejlesztes/locations/-/instances/angular-webfejlesztes-default-rtdb 404
+[debug] [2024-04-21T14:27:39.733Z] <<< [apiv2][body] GET https://firebasedatabase.googleapis.com/v1beta/projects/angular-webfejlesztes/locations/-/instances/angular-webfejlesztes-default-rtdb {"error":{"code":404,"message":"Project has been deleted.","status":"NOT_FOUND"}}
+[debug] [2024-04-21T14:27:39.734Z] HTTP Error: 404, Project has been deleted.
+[debug] [2024-04-21T14:27:39.736Z] FirebaseError: HTTP Error: 404, Project has been deleted.
+    at responseToError (C:\Users\Attila\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\Attila\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:299:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get instance details for instance: angular-webfejlesztes-default-rtdb. See firebase-debug.log for more details.
